@@ -87,3 +87,21 @@ Insert your SD cards into your pis and you should have a bunch of ssh accessible
 user: pirate
 password: hypriot
 ```
+
+# Running the playbooks
+
+The playbooks should perform the following:
+
+- Create the kubernetes cluster
+- Add Ingress to the cluster
+- Create a sample nodejs app
+
+Once done you should be able to access the nodejs app at [http://hello-nodejs.rak8s001](http://hello-nodejs.rak8s001)
+
+```
+ansible-playbook cluster.yml
+ansible-playbook dashboard.yml
+ansible-playbook ingress.yml
+
+```
+

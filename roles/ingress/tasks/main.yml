@@ -1,0 +1,19 @@
+---
+- name: Install traefik RBAC
+  shell: kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
+
+- name: Install traefik daemonset
+  shell: kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-ds.yaml
+
+- name: Install traefik UI
+  shell: kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/ui.yaml
+
+- name: Create sample nodejs app
+  shell: kubectl create deployment hello-nodejs --image=welshstew/hello-kube-nodejs-on-arm:1.0
+
+- name: Create sample nodejs svc
+  shell: kubectl apply -f https://raw.githubusercontent.com/welshstew/hello-kube-nodejs-on-arm/master/kube/hello-nodejs-svc.yml
+
+- name: Create sample nodejs ingress
+  shell: kubectl apply -f https://raw.githubusercontent.com/welshstew/hello-kube-nodejs-on-arm/master/kube/hello-nodejs-ingress.yml
+
