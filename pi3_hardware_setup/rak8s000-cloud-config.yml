@@ -1,0 +1,73 @@
+#cloud-config
+
+hostname: rak8s000
+manage_etc_hosts: true
+apt_preserve_sources_list: true
+
+users:
+  - name: pirate
+    primary-group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker,adm,dialout,audio,plugdev,netdev,video
+    ssh-import-id: None
+    plain_text_passwd: hypriot
+    lock_passwd: false
+    ssh_pwauth: true
+    chpasswd: { expire: false }
+    ssh-authorized-keys:
+      - YOUR_SSH_KEY
+
+package_upgrade: false
+
+write_files:
+  - content: |
+      127.0.1.1 {{fqdn}} {{hostname}}
+      127.0.0.1 localhost
+
+       # The following lines are desirable for IPv6 capable hosts
+      ::1 ip6-localhost ip6-loopback
+      fe00::0 ip6-localnet
+      ff00::0 ip6-mcastprefix
+      ff02::1 ip6-allnodes
+      ff02::2 ip6-allrouters
+      ff02::3 ip6-allhosts
+
+      192.168.2.200 rak8s000 rak8s000
+      192.168.2.201 rak8s001 rak8s001
+      192.168.2.202 rak8s002 rak8s002
+      192.168.2.203 rak8s003 rak8s003
+    path: /etc/cloud/templates/hosts.debian.tmpl
+  - content: |
+       interface wlan0
+       static ip_address=192.168.2.200
+       static routers=192.168.2.1
+       static domain_name_servers=192.168.2.1
+    path: /etc/dhcpcd.conf
+  - content: |
+      iface wlan0 inet manual
+      wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+          address 192.168.2.200
+          netmask 255.255.255.0
+          gateway 192.168.2.1      
+    path: /etc/network/interfaces.d/wlan0
+  - content: |
+      country=GB
+      ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+      update_config=1
+      network={
+      ssid="PiHub247"
+      psk="b4k3m3aPIE"
+      proto=RSN
+      key_mgmt=WPA-PSK
+      pairwise=CCMP
+      auth_alg=OPEN
+      }
+    path: /etc/wpa_supplicant/wpa_supplicant.conf
+
+# These commands will be ran once on first boot only
+runcmd:
+  - 'systemctl restart avahi-daemon'
+  - 'sleep 10'
+  - 'ifup wlan0'
+  - 'sleep 10'

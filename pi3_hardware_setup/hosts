@@ -1,0 +1,8 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.2.201 hello-nodejs.rak8s001
+192.168.2.200 rak8s000 rak8s000
+192.168.2.201 rak8s001 rak8s001
+192.168.2.202 rak8s002 rak8s002
+192.168.2.203 rak8s003 rak8s003
