@@ -42,17 +42,26 @@
   tags:
     - boot
 
-- name: python-apt dependency
-  shell: apt-get install -y python-apt
-  args:
-    warn: no
+#ensure we are starting from a clean base
+- name: "apt-get purge packages"
+  apt:
+    name: ['kubelet','kubeadm','kubectl','docker-ce']
+    state: absent
+    purge: yes
+    autoremove: yes
+    force: yes
 
 - name: apt-get update
   apt:
     update_cache: yes
     autoclean: yes
     autoremove: yes
-    cache_valid_time: 86400
+    cache_valid_time: 86400    
+
+- name: python-apt dependency
+  shell: apt-get install -y python-apt
+  args:
+    warn: no
 
 - name: apt-get upgrade
   apt:
