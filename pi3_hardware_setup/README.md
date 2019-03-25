@@ -2,6 +2,8 @@
 
 This is to document my home pi3 cluster setup when using HypriotOS and Rak8s.
 
+![Set different subnet](./img/pi3-cluster-2.jpg)
+
 ## My Shopping List
 
 - MicroSD Cards (x4) - https://www.amazon.co.uk/Samsung-32GB-Memory-Micro-Adapter/dp/B06XFSZGCC/ref=sr_1_3?crid=20EE3ZPU4Q6LW&keywords=samsung+32gb+micro+sd+card&qid=1553088617&s=computers&sprefix=samsung+32gb+m%2Ccomputers%2C438&sr=1-3
