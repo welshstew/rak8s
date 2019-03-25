@@ -19,7 +19,7 @@
   when: docker_there.stat.exists == False
   register: docker_installed
 
-- name: Lock docker version to {{ docker_ce_version}}
+- name: Lock docker version to {{ docker_ce_version }}
   command: /usr/bin/apt-mark hold docker-ce
   when: docker_installed.changed
 
