@@ -16,7 +16,7 @@ users:
     ssh_pwauth: true
     chpasswd: { expire: false }
     ssh-authorized-keys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC625ILRqDkCgqAL14gFUQt2YpuE1wZDKIhMMcIw7pQb2yDj/PLosMJEcjiayeI0CRM0GcyNLJXKpz/Zuy0+BlNCibn9jKiTH7ZTKBROMuG9WL9SzWfMp4i/9JgSMyHzCUIuJzWB0CxcmXWNcY1gl7Bi5PIgsMMKjmZQ8WBAlLdAXiMEq938J8S3MYREgXt1hMi8ksSQd+fknwJmQEAQ3VsCg3SiZBlgLNGf9YNWrHadSUxG6xFoCMQDmxMZlwbThncUqq52HpORUeq5ivBSvFnUrIuTihNkedMqAoIt0sTE1MK5ZgHDDkMVVPDgYOmFSOi+bTiqNZiARe+RJq28ddiRW45aSSUS4FI8cVc4qK7fexIN1qno9pqZWHtWZOEuAqtptVCAQY8AOTS1pzLX7sXE1aRC7wo/5Js7JRSjbk+cB1LHubfqSqK5gx/bN+QQN+W68RIoqSEgWhSat6ciA+tOXtpeVbULIzqJjWux2SLbZYje332v6/mLYX2hz3clF4D/n7eHYgzB47QsWjoGHIxaB+WArbUiT93TEY/FnhbdTevl3qyg5/B8+r9uBLKp8GGaweKeP/0amWBBC8l6tkqjFi6zYjyJS3xZPunyPuzQBMLatjUr+bNC9hqBON0TixIFBSxFYv3ia1UE02JdgjB7JxdmOhwSOPoAXaq7+HYPQ== swinches@redhat.com"
+      - "YOUR_SSH_KEY"
 
 package_upgrade: false
 
